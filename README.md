@@ -102,6 +102,19 @@ The production app is generated in `web/dist`. Preview it with:
 npm --prefix web run preview
 ```
 
+### Deploy to Vercel
+
+Import the GitHub repository at [vercel.com/new](https://vercel.com/new) and leave **Root Directory** at the repository root. The included `vercel.json` installs dependencies in `web`, builds the app, and publishes `web/dist`.
+
+The default LiteForge RPC and deployed contract addresses are already configured, so no environment variables are required. To use another RPC endpoint, set `VITE_RPC_URL` in Vercel before building.
+
+For a deployment from your terminal, sign in with `vercel login`, then run from the project root. Link the lowercase project name explicitly; Vercel rejects the uppercase letters in the folder name `AccruePayroll` when creating a project:
+
+```bash
+vercel link --yes --project accruepayroll
+vercel --prod --yes
+```
+
 ### Local development with Anvil
 
 Start a local chain in a separate terminal:

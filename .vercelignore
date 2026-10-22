@@ -1,0 +1,17 @@
+# Upload the frontend and deployment configuration.
+/*
+!/web
+!/web/**
+!/vercel.json
+
+# Exclude local environments and generated files.
+**/node_modules
+**/dist
+**/.vercel
+**/.env
+**/.env.*
+**/*.env
+**/*.env.*
+**/*.tsbuildinfo
+**/*.log
+**/.DS_Store

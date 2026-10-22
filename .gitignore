@@ -66,6 +66,7 @@ node_modules/
 web/dist/
 *.tsbuildinfo
 coverage/
+.vercel/
 
 # Temporary and local files.
 *.log
@@ -73,3 +74,5 @@ coverage/
 *.bak
 *~
 .DS_Store
+.vercel
+.env*
