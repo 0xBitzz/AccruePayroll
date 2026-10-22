@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react";
-import { erc20Abi, formatUnits, getAddress, isAddress, maxUint128, maxUint256, zeroAddress, type Address } from "viem";
+import { erc20Abi, formatUnits, getAddress, isAddress, maxUint128, zeroAddress, type Address } from "viem";
 import { Droplets, ShieldCheck, TriangleAlert } from "lucide-react";
 import { payrollAbi, lusdAbi } from "../lib/generated";
 import {
@@ -202,7 +202,7 @@ export function FundModal({ org, token, onClose }: { org: OrgView; token: TokenM
         address: token.address,
         abi: erc20Abi,
         functionName: "approve",
-        args: [PAYROLL!, maxUint256],
+        args: [PAYROLL!, value],
       });
       return;
     }
