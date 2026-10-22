@@ -1,0 +1,26 @@
+{
+  "name": "accruepayroll",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "node --test test/*.test.mjs ../scripts/tests/*.test.mjs",
+    "sync": "node ../scripts/sync-contracts.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "viem": "^2.57.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.21"
+  }
+}

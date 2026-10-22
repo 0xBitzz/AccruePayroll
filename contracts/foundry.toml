@@ -1,0 +1,20 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.24"
+# LitVM is an Arbitrum Orbit chain; paris keeps bytecode free of newer opcodes.
+evm_version = "paris"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "forge-std/=lib/forge-std/src/",
+]
+
+[rpc_endpoints]
+litvm = "${LITVM_RPC_URL}"
+
+[etherscan]
+litvm = { key = "blockscout", url = "https://liteforge.explorer.caldera.xyz/api/", chain = 4441 }
