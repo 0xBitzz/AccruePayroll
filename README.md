@@ -2,7 +2,7 @@
 
 **Monthly payroll on [LitVM](https://docs.litvm.com), Litecoin’s EVM layer.**
 
-AccruePayroll helps teams manage salaries, fund payroll, and pay employees directly from a shared treasury. Employers choose a monthly payday, add their team, and send all payable salaries in one transaction. Employees confirm their payout wallets, optionally split incoming payments between wallets, and view their payslips on-chain.
+AccruePayroll helps teams manage salaries, fund payroll, and pay employees directly from a dedicated payroll treasury. Employers choose a monthly payday, add their team, and send all payable salaries in one transaction. Employees confirm their payout wallets, optionally split incoming payments between wallets, and view their payslips on-chain.
 
 The contracts track unpaid salaries and reserve payroll obligations when calculating the surplus available for bonuses and employer withdrawals. The app reads payroll data directly from the blockchain, without a backend or an indexer.
 
@@ -13,7 +13,7 @@ Built for the **LitVM LiteForge testnet**, using Solidity and Foundry for the co
 | Contract | Address |
 |---|---|
 | AccruePayroll | [`0xc0a0B22D202Bd9Ef3D8C0Ca5eeDCd90558e99500`](https://liteforge.explorer.caldera.xyz/address/0xc0a0B22D202Bd9Ef3D8C0Ca5eeDCd90558e99500) |
-| LitUSD — test payroll token | [`0x43011Da0B111e3b319ED6973A13b64124343B691`](https://liteforge.explorer.caldera.xyz/address/0x43011Da0B111e3b319ED6973A13b64124343B691) |
+| LitUSD — lUSD | [`0x43011Da0B111e3b319ED6973A13b64124343B691`](https://liteforge.explorer.caldera.xyz/address/0x43011Da0B111e3b319ED6973A13b64124343B691) |
 
 ## Features
 
@@ -102,19 +102,6 @@ The production app is generated in `web/dist`. Preview it with:
 npm --prefix web run preview
 ```
 
-### Deploy to Vercel
-
-Import the GitHub repository at [vercel.com/new](https://vercel.com/new) and leave **Root Directory** at the repository root. The included `vercel.json` installs dependencies in `web`, builds the app, and publishes `web/dist`.
-
-The default LiteForge RPC and deployed contract addresses are already configured, so no environment variables are required. To use another RPC endpoint, set `VITE_RPC_URL` in Vercel before building.
-
-For a deployment from your terminal, sign in with `vercel login`, then run from the project root. Link the lowercase project name explicitly; Vercel rejects the uppercase letters in the folder name `AccruePayroll` when creating a project:
-
-```bash
-vercel link --yes --project accruepayroll
-vercel --prod --yes
-```
-
 ### Local development with Anvil
 
 Start a local chain in a separate terminal:
@@ -150,11 +137,3 @@ Fund the deployment wallet with testnet zkLTC from the [LitVM faucet](https://te
 ```bash
 ./scripts/deploy-litvm.sh
 ```
-
-To reuse the existing LitUSD token:
-
-```bash
-LUSD=0x43011Da0B111e3b319ED6973A13b64124343B691 ./scripts/deploy-litvm.sh
-```
-
-The frontend’s contract addresses and ABIs are updated automatically. Publish the generated `web/dist` directory to a static host. For source verification, see the [contract verification guide](contracts/verification/README.md).
